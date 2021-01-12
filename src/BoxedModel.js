@@ -3,14 +3,13 @@ import { Model, useClick, useScene, useEngine } from "react-babylonjs";
 import "@babylonjs/loaders/glTF";
 
 const BoxedModel = () => {
-  //const engine = useEngine(); // Is null
-  //console.log(engine);
+  const engine = useEngine(); // Is null
+  console.log(engine);
   const scene = useScene();
   let timeframe = 0;
   let lastRQ = null;
 
   const [boxedMesh] = useClick(({ source }) => {
-    console.log(source);
     timeframe = 0;
     lastRQ = { ...source.rotationQuaternion };
     source.physicsImpostor.applyImpulse(new Vector3(2, 2, 2), Vector3.Zero());
