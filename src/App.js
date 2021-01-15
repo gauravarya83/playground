@@ -4,31 +4,35 @@ import { CannonJSPlugin, Vector3 } from '@babylonjs/core';
 import { Engine, Scene } from 'react-babylonjs';
 
 import './App.css';
-import BoxedModel from './BoxedModel';
+import Cloned from './Components/Cloned';
+import Cloned1 from './Components/Cloned1';
+import Instanced from './Components/Instanced';
 
 import * as CANNON from 'cannon';
 window.CANNON = CANNON;
 
 function App() {
-  return (
+  return <>
     <Engine antialias adaptToDeviceRatio canvasId='canvas1'>
       <Scene enablePhysics={[new Vector3(0, -9.81, 0), new CannonJSPlugin()]}>
         <arcRotateCamera
           name="camera1"
           target={Vector3.Zero()}
           setTarget={[Vector3.Zero()]}
-          alpha={Math.PI/4}
-          beta={Math.PI/4}
+          alpha={0}
+          beta={0}
           upperBetaLimit={Math.PI/2.5}
-          radius={10}
+          radius={12}
         />
         <hemisphericLight name="light1" direction={Vector3.Right()} />
         <Suspense fallback={null}>
-          <BoxedModel />
+          <Cloned />
+          {/* <Cloned1 /> */}
+          {/* <Instanced /> */}
         </Suspense>
       </Scene>
     </Engine>
-  );
+  </>
 }
 
 export default App;

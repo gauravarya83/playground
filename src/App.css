@@ -4,3 +4,13 @@
   width: 100%;
   height: 100%;
 }
+
+.panel {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.panel input {
+  margin-left: 5px;
+}
